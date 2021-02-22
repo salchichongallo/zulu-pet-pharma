@@ -1,0 +1,26 @@
+$font-family-sans-serif: 'Poppins', sans-serif;
+$font-weight-bold: 500;
+
+$primary: #fa4b75;
+$body-bg: #f1f1f1;
+$text-active: rgba(#000, 0.87);
+$text-inactive: rgba(#000, 0.6);
+$text-disabled: rgba(#000, 0.38);
+$body-color: $text-active;
+
+$border-radius: 0.5rem;
+
+$btn-font-weight: $font-weight-bold;
+$btn-border-radius: 999px;
+$btn-border-radius-lg: 999px;
+$btn-border-radius-sm: $btn-border-radius;
+
+$input-border-radius-lg: $border-radius;
+$input-placeholder-color: $text-disabled;
+$input-color: $text-active;
+
+$card-border-width: 0;
+
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
