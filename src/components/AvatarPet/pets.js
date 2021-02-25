@@ -13,6 +13,11 @@ function importAll(contextRequire) {
   }, {})
 }
 
-export const petsUrlsByName = importAll(
-  require.context('./img/', false, /\.png$/)
-)
+let petsUrlsByName = {}
+if (process.env.NODE_ENV !== 'test') {
+  petsUrlsByName = importAll(require.context('./img/', false, /\.png$/))
+}
+
+export function getImgUrl(petName) {
+  return petsUrlsByName[petName]
+}
