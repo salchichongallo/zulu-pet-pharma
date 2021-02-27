@@ -21,3 +21,7 @@ if (process.env.NODE_ENV !== 'test') {
 export function getImgUrl(petName) {
   return petsUrlsByName[petName]
 }
+
+export function getPetsNames() {
+  return Object.keys(petsUrlsByName)
+}
