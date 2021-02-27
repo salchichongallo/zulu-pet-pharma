@@ -1,4 +1,5 @@
 import React from 'react'
+import {OverlayProvider} from 'react-aria'
 import Home from 'Home/Home'
 
 const pets = [
@@ -23,7 +24,11 @@ const pets = [
 ]
 
 function App() {
-  return <Home pets={pets} />
+  return (
+    <OverlayProvider>
+      <Home pets={pets} />
+    </OverlayProvider>
+  )
 }
 
 export default App

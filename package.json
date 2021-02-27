@@ -36,8 +36,10 @@
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
+    "react-aria": "^3.4.0",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
+    "react-stately": "^3.3.0",
     "web-vitals": "^1.0.1"
   }
 }
