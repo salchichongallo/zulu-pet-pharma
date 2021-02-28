@@ -12,14 +12,16 @@ function Home({onRegisterClick, onEditClick, onDeleteClick, pets = []}) {
         <p className="text-secondary mb-0">Veterinary</p>
       </header>
       <main>
-        <PetList
-          pets={pets}
-          onEditClick={onEditClick}
-          onDeleteClick={onDeleteClick}
-        />
+        <div style={{paddingBottom: 96}}>
+          <PetList
+            pets={pets}
+            onEditClick={onEditClick}
+            onDeleteClick={onDeleteClick}
+          />
+        </div>
         <footer className="fixed-bottom">
           <AppLayout>
-            <div className="pb-3">
+            <div className="pb-4">
               <button
                 type="button"
                 onClick={onRegisterClick}
