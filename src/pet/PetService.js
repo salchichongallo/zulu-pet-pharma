@@ -1,74 +1,40 @@
+import 'firebase/firestore'
+import * as firebase from 'firebase'
+import {firebaseApp} from 'firebase/firebaseApp'
+
+const db = firebase.firestore(firebaseApp)
+
+const PETS_COLLECTION = 'pets'
+
 export class PetService {
-  static counter = 0
   static loadAllPets() {
-    return new Promise(resolve => {
-      setTimeout(
-        () =>
-          resolve([
-            {
-              id: ++this.counter,
-              name: 'Izzy',
-              petType: 'dog',
-              breed: 'Terrier',
-              birthDate: '2021-01-01',
-              owner: {
-                firstName: 'John',
-                lastName: 'Doe',
-                address: 'test address',
-                phone: '123 456 7890',
-                email: 'john@doe.com',
-              },
-              createdAt: new Date('2021-01-11'),
-            },
-            {
-              id: ++this.counter,
-              name: 'Buzzy',
-              petType: 'snake',
-              breed: 'Boa',
-              birthDate: '2018-02-15',
-              owner: {
-                firstName: 'Jane',
-                lastName: 'Doe',
-                address: 'test address',
-                phone: '123 456 7890',
-                email: 'jane@doe.com',
-              },
-            },
-          ]),
-        500
-      )
-    })
+    return db
+      .collection(PETS_COLLECTION)
+      .get()
+      .then(snapshot => snapshot.docs)
+      .then(docs => docs.map(doc => ({...doc.data(), id: doc.id})))
   }
 
   static register(pet) {
-    return new Promise(resolve => {
-      setTimeout(
-        () =>
-          resolve({
-            id: ++this.count,
-            ...pet,
-          }),
-        1500
-      )
-    })
+    return db
+      .collection(PETS_COLLECTION)
+      .add(pet)
+      .then(doc => ({...pet, id: doc.id}))
   }
 
   static update(pet) {
-    return new Promise(resolve => {
-      setTimeout(
-        () =>
-          resolve({
-            ...pet,
-            updatedAt: new Date(),
-          }),
-        1500
-      )
-    })
+    return db
+      .collection(PETS_COLLECTION)
+      .doc(pet.id)
+      .update(pet)
+      .then(() => pet)
   }
 
   static delete(pet) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve(pet), 1500)
-    })
+    return db
+      .collection(PETS_COLLECTION)
+      .doc(pet.id)
+      .delete()
+      .then(() => pet)
   }
 }
