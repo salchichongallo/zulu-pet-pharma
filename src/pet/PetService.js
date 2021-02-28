@@ -52,4 +52,17 @@ export class PetService {
       )
     })
   }
+
+  static update(pet) {
+    return new Promise(resolve => {
+      setTimeout(
+        () =>
+          resolve({
+            ...pet,
+            updatedAt: new Date(),
+          }),
+        1500
+      )
+    })
+  }
 }

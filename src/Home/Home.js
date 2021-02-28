@@ -3,7 +3,7 @@ import AppLayout from 'components/AppLayout/AppLayout'
 import manUrl from './man.png'
 import PetList from './PetList'
 
-function Home({onRegisterClick, pets = []}) {
+function Home({onRegisterClick, onEditClick, pets = []}) {
   return (
     <AppLayout>
       <header className="mt-4">
@@ -12,7 +12,7 @@ function Home({onRegisterClick, pets = []}) {
         <p className="text-secondary mb-0">Veterinary</p>
       </header>
       <main>
-        <PetList pets={pets} />
+        <PetList pets={pets} onEditClick={onEditClick} />
         <footer className="fixed-bottom">
           <AppLayout>
             <div className="pb-3">
