@@ -65,4 +65,10 @@ export class PetService {
       )
     })
   }
+
+  static delete(pet) {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(pet), 1500)
+    })
+  }
 }

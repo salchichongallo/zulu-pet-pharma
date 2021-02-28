@@ -5,6 +5,7 @@ import {useOverlayTriggerState} from 'react-stately'
 import Home from 'Home/Home'
 import {PetService} from 'pet/PetService'
 import EditPetPage from 'EditPetPage/EditPetPage'
+import DeletePetPage from 'DeletePetPage/DeletePetPage'
 import RegisterPetPage from 'RegisterPetPage/RegisterPetPage'
 
 function App() {
@@ -30,12 +31,20 @@ function App() {
     setEditingPet(null)
   }
 
+  const [deletingPet, setDeletingPet] = React.useState(null)
+  const handleDelete = deletedPet => {
+    console.log(deletedPet)
+    setPets(pets => pets.filter(pet => pet.id !== deletedPet.id))
+    setDeletingPet(null)
+  }
+
   return (
     <OverlayProvider>
       <Home
         pets={pets}
         onRegisterClick={registerPage.open}
         onEditClick={setEditingPet}
+        onDeleteClick={setDeletingPet}
       />
       {registerPage.isOpen && (
         <RegisterPetPage onPet={addPet} onBackClick={registerPage.close} />
@@ -45,6 +54,13 @@ function App() {
           pet={editingPet}
           onEdit={handleEdit}
           onClose={() => setEditingPet(null)}
+        />
+      )}
+      {deletingPet && (
+        <DeletePetPage
+          pet={deletingPet}
+          onDelete={handleDelete}
+          onClose={() => setDeletingPet(null)}
         />
       )}
     </OverlayProvider>

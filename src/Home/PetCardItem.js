@@ -1,8 +1,17 @@
 import React from 'react'
 import {formatPetAge} from 'pet/formatPetAge'
 import AvatarPet from 'components/AvatarPet/AvatarPet'
+import DeletePetButton from './DeletePetButton'
 
-function PetCardItem({name, petType, breed, birthDate, owner, onEditClick}) {
+function PetCardItem({
+  name,
+  petType,
+  breed,
+  birthDate,
+  owner,
+  onEditClick,
+  onDeleteClick,
+}) {
   return (
     <article className="card" data-testid="PetCardItem">
       <div className="card-body pb-3 d-flex">
@@ -29,9 +38,14 @@ function PetCardItem({name, petType, breed, birthDate, owner, onEditClick}) {
               {formatPetAge(birthDate)}
             </p>
           </div>
-          <div className="text-secondary">
-            <span>Owned by </span>
-            <span data-testid="PetCardItem-owner">{`${owner.firstName} ${owner.lastName}`}</span>
+          <div className="d-flex justify-content-between align-items-baseline">
+            <div className="text-secondary">
+              <span>Owned by </span>
+              <span data-testid="PetCardItem-owner">{`${owner.firstName} ${owner.lastName}`}</span>
+            </div>
+            <div className="pr-2">
+              <DeletePetButton onClick={onDeleteClick} />
+            </div>
           </div>
         </div>
       </div>
