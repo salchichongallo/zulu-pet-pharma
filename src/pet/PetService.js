@@ -1,12 +1,12 @@
 export class PetService {
-  static counter = 6
+  static counter = 0
   static loadAllPets() {
     return new Promise(resolve => {
       setTimeout(
         () =>
           resolve([
             {
-              id: this.counter++,
+              id: ++this.counter,
               name: 'Izzy',
               petType: 'dog',
               breed: 'Terrier',
@@ -21,7 +21,7 @@ export class PetService {
               createdAt: new Date('2021-01-11'),
             },
             {
-              id: this.counter++,
+              id: ++this.counter,
               name: 'Buzzy',
               petType: 'snake',
               breed: 'Boa',
@@ -36,6 +36,19 @@ export class PetService {
             },
           ]),
         500
+      )
+    })
+  }
+
+  static register(pet) {
+    return new Promise(resolve => {
+      setTimeout(
+        () =>
+          resolve({
+            id: ++this.count,
+            ...pet,
+          }),
+        1500
       )
     })
   }
