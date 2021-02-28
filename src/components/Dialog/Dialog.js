@@ -53,14 +53,16 @@ Dialog.Content = function DialogContent(props) {
       ref={contentRef}
       style={
         isFullscreen
-          ? {height: '100%', outline: 0}
+          ? {height: '100%', outline: 0, padding: '2rem'}
           : {
-              margin: '5vh 0',
+              margin: '5vh auto',
               borderRadius: '1rem',
               outline: 0,
+              maxWidth: 468,
+              padding: '2rem',
             }
       }
-      className={`p-4 bg-white position-relative ${
+      className={`bg-white position-relative ${
         isFullscreen ? '' : 'shadow-lg'
       }`}
     >
