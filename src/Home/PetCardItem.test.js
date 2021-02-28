@@ -11,8 +11,10 @@ const renderPetCard = (props = {}) =>
       petType="dog"
       breed="terrier"
       birthDate="2021-01-01"
-      ownerName="john"
-      ownerLastName="doe"
+      owner={{
+        firstName: 'john',
+        lastName: 'doe',
+      }}
       {...props}
     />
   )
@@ -28,7 +30,7 @@ test('renders correctly', () => {
 })
 
 test("renders owner's full name", () => {
-  renderPetCard({ownerName: 'john', ownerLastName: 'doe'})
+  renderPetCard({owner: {firstName: 'john', lastName: 'doe'}})
   expect(screen.getByTestId('PetCardItem-owner')).toHaveTextContent('john doe')
 })
 

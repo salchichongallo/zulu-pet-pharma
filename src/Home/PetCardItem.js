@@ -2,15 +2,7 @@ import React from 'react'
 import {formatPetAge} from 'pet/formatPetAge'
 import AvatarPet from 'components/AvatarPet/AvatarPet'
 
-function PetCardItem({
-  name,
-  petType,
-  breed,
-  birthDate,
-  ownerName,
-  ownerLastName,
-  onDetailsClick,
-}) {
+function PetCardItem({name, petType, breed, birthDate, owner, onDetailsClick}) {
   return (
     <article className="card" data-testid="PetCardItem">
       <div className="card-body pb-3 d-flex">
@@ -39,7 +31,7 @@ function PetCardItem({
           </div>
           <div className="text-secondary">
             <span>Owned by </span>
-            <span data-testid="PetCardItem-owner">{`${ownerName} ${ownerLastName}`}</span>
+            <span data-testid="PetCardItem-owner">{`${owner.firstName} ${owner.lastName}`}</span>
           </div>
         </div>
       </div>

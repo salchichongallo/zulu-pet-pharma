@@ -1,29 +1,15 @@
 import React from 'react'
 import {OverlayProvider} from 'react-aria'
-import Home from 'Home/Home'
 
-const pets = [
-  {
-    id: 1,
-    name: 'Izzy',
-    petType: 'dog',
-    breed: 'Terrier',
-    birthDate: '2021-01-01',
-    ownerName: 'Jimmy',
-    ownerLastName: 'Murillo',
-  },
-  {
-    id: 2,
-    name: 'Buzzy',
-    petType: 'snake',
-    breed: 'Boa',
-    birthDate: '2018-02-15',
-    ownerName: 'Jane',
-    ownerLastName: 'Doe',
-  },
-]
+import Home from 'Home/Home'
+import {PetService} from 'pet/PetService'
 
 function App() {
+  const [pets, setPets] = React.useState([])
+  const [, setError] = React.useState(null)
+  React.useEffect(() => {
+    PetService.loadAllPets().then(setPets).catch(setError)
+  }, [])
   return (
     <OverlayProvider>
       <Home pets={pets} />

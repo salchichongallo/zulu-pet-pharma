@@ -22,10 +22,12 @@ describe('PetList', () => {
       {
         id: 1,
         name: 'foo',
+        owner: {},
       },
       {
         id: 2,
         name: 'bar',
+        owner: {},
       },
     ]
     render(<Home pets={pets} />)
