@@ -2,7 +2,7 @@ import React from 'react'
 import {formatPetAge} from 'pet/formatPetAge'
 import AvatarPet from 'components/AvatarPet/AvatarPet'
 
-function PetCardItem({name, petType, breed, birthDate, owner, onDetailsClick}) {
+function PetCardItem({name, petType, breed, birthDate, owner, onEditClick}) {
   return (
     <article className="card" data-testid="PetCardItem">
       <div className="card-body pb-3 d-flex">
@@ -18,10 +18,10 @@ function PetCardItem({name, petType, breed, birthDate, owner, onDetailsClick}) {
             </div>
             <button
               type="button"
-              onClick={onDetailsClick}
+              onClick={onEditClick}
               className="btn btn-link text-uppercase font-weight-bold"
             >
-              Details
+              Edit
             </button>
           </header>
           <div className="mt-n1">

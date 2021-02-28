@@ -45,14 +45,14 @@ test('formats birth date', () => {
 })
 
 test('pet detail button', () => {
-  const onDetailsClick = jest.fn()
-  renderPetCard({onDetailsClick})
+  const onEditClick = jest.fn()
+  renderPetCard({onEditClick})
 
-  const button = screen.queryByText('Details')
+  const button = screen.queryByText('Edit')
   expect(button).toBeInTheDocument()
   expect(button).toHaveAttribute('type', 'button')
   expect(button).not.toBeDisabled()
 
   userEvent.click(button)
-  expect(onDetailsClick).toHaveBeenCalled()
+  expect(onEditClick).toHaveBeenCalled()
 })
