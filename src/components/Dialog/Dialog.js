@@ -54,9 +54,15 @@ Dialog.Content = function DialogContent(props) {
       style={
         isFullscreen
           ? {height: '100%', outline: 0}
-          : {margin: '15vh 0', borderRadius: '1rem', outline: 0}
+          : {
+              margin: '5vh 0',
+              borderRadius: '1rem',
+              outline: 0,
+            }
       }
-      className={isFullscreen ? 'p-4 bg-white' : 'p-4 shadow-lg bg-white'}
+      className={`p-4 bg-white position-relative ${
+        isFullscreen ? '' : 'shadow-lg'
+      }`}
     >
       {children}
     </div>
