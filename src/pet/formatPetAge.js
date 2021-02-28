@@ -16,22 +16,22 @@ export function formatPetAge(birthDate, now) {
       return 'Newly born'
     }
     if (days === 1) {
-      return '1 Day'
+      return '1 Day old'
     }
-    return `${days} Days`
+    return `${days} Days old`
   }
 
   if (months >= 12) {
     if (months === 12) {
-      return '1 Year'
+      return '1 Year old'
     }
 
     const fixedYears = (months / 12).toFixed(1)
     const intYears = parseInt(fixedYears, 10)
     return intYears === Number(fixedYears)
-      ? `${intYears} Years`
-      : `${fixedYears} Years`
+      ? `${intYears} Years old`
+      : `${fixedYears} Years old`
   }
 
-  return months === 1 ? '1 Month' : `${months} Months`
+  return months === 1 ? '1 Month old' : `${months} Months old`
 }
