@@ -15,12 +15,15 @@ $btn-font-weight: $font-weight-bold;
 $btn-border-radius: 999px;
 $btn-border-radius-lg: 999px;
 $btn-border-radius-sm: $btn-border-radius;
+$btn-padding-y-lg: 0.75rem;
 
 $input-border-radius-lg: $border-radius;
 $input-placeholder-color: $text-disabled;
 $input-color: $text-active;
 
 $card-border-width: 0;
+
+$form-group-margin-bottom: 1.25rem;
 
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
